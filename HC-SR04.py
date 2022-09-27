@@ -30,17 +30,17 @@ try:
 		distance = (elapsed * 34300)/2
 		sTimeStamp = time.strftime('%Y%m%d%H%M%S')
 		f.write(sTimeStamp + ',' + str(distance) + '\n')
-		print sTimeStamp + ' ' + str(distance)
+		print (sTimeStamp + ' ' + str(distance))
 		time.sleep(1)
 		sTmpFileStamp = time.strftime('%Y%m%d%H')
-		if sTmpFileStamp <> sFileStamp:
-		  	f.close
-            sFileName = 'out/' + sTmpFileStamp + '.txt'
-            f=open(sFileName, 'a')
-            sFileStamp = sTmpFileStamp
-            print ("creando el archivo")
+		if sTmpFileStamp != sFileStamp:
+			f.close
+			sFileName = 'out/' + sTmpFileStamp + '.txt'
+			f=open(sFileName, 'a')
+			sFileStamp = sTmpFileStamp
+			print ("creando el archivo")
 
 except KeyboardInterrupt:
-    print ('\n' + 'termina la captura de datos.' + '\n')
+	print ('\n' + 'termina la captura de datos.' + '\n')
 	f.close
 	GPIO.cleanup()
